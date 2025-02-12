@@ -1,1 +1,1 @@
-# 3-2-2025-Software-Engineering-part-time
+This repository has all the example codes and class exercies taught in this cohort.
