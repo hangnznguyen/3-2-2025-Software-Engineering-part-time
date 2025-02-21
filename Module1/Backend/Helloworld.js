@@ -8,7 +8,8 @@ function Showmessages(name)
 Showmessages("Graham")
 Showmessages("Rose")
 Showmessages("Gavin")
-
+Showmessages("Hoa")
+Showmessages("Duong")
 function sum(a,b)
 {
     return a + b
