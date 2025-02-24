@@ -1,0 +1,110 @@
+<!DOCTYPE html
+>
+<html lang
+="en"
+>
+
+<head
+>
+<meta charset
+
+="UTF-8"
+>
+
+<meta name
+
+="viewport"
+
+content
+="width=device-width, initial-scale=1.0"
+>
+
+<title
+>Module 1 Exercise 3</title
+>
+
+<style
+>
+
+body { font-family: sans-serif; margin:
+0; }
+.container { display: flex; min-height:
+100vh; align-items: stretch; }
+.column { background: goldenrod; display:
+flex; flex-direction: column; justify-content:
+center; align-items: center; flex:
+1; }
+
+</style
+>
+</head
+>
+<body
+>
+<div class
+
+="container"
+>
+
+<div class
+
+="column" id
+
+="column1"
+>
+<img src="https://idsb.tmgrup.com.tr/ly/uploads/images/2025/02/18/thumbs/1200x675/369089.jpg?v=1739883398" alt="Chongqing city" width="50"
+height="50">
+<h1 id
+="heading1"
+
+>Hello</h1
+>
+<script>
+    document.getElementById("heading1").style.color = "blue";
+</script>
+
+<p id="demo"></p>
+<button onclick="changeme1()">Change me</button>
+
+<script>
+function changeme1() {
+  document.getElementById("demo").style.background = "red"; // Change the background color of the paragraph
+}
+</script>
+
+</div
+>
+<div class
+
+="column" id
+
+="column2"
+>
+<img src="https://lh5.googleusercontent.com/p/AF1QipPHezyI8JXjxoUt7_AnTNHBEa-8GRj-L_Q_zWts=w384-h256-k-no" alt="Shanghai city" width="50"
+height="50">
+
+<h1 id
+="heading2"
+
+>World</h1
+>
+<script>
+    document.getElementById("heading2").style.color = "red";
+</script>
+
+<p id="demo1"></p>
+<button onclick="changeme2()">Change me</button>
+
+<script>
+function changeme2() {
+  document.getElementById("demo1").style.background = "blue"; // Change the background color of the paragraph
+}
+</script>
+</div
+>
+</div
+>
+</body
+>
+</html
+>
