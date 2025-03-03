@@ -1,0 +1,148 @@
+/* I. Selectors */
+/* Put styles for questions 1.1, 1.2, 1.3 and 1.4 here */
+article { margin: 20px 0;
+          padding: 20px;
+          border: 1px solid black;
+}
+.style-me1{color: red;}
+#style-me2{color: blue;}
+.style-me1#style.me2{font: purple;}
+
+
+
+/* Put styles for questions 2.1 and 2.2 here */
+.my-descendants-are-styled p{background-color: red;}
+.my-children-are-styled p{background-color: lightgreen;}
+
+
+/* II. Box model and common properties */
+/* Put styles for questions 1-8 here */
+.box{background-color: brown;
+    margin: 10px 20px 30 px 40px
+    padding: 1em 2em 3em 4em
+}
+.box{margin: 10px 20%;
+    padding: 1em 3px;
+}
+.box{
+    margin: 10px;
+    padding: 1em;
+}
+
+.box{width: 200px; height: 130px;}
+.box{width:10rem; height: 7rem;}
+.box{width: 20vh; height: 30vh!important;}/* the third box retains because the attribute that is directly applied to HTML element */
+.box{width:30vw; height: 10vw;}/*The box resizes dynamically as you resize the browser window. This is because vw and vh units are responsive to the viewport size.*/
+.box{border-color: rgb(43, 226, 107); border-style:solid; border: 10px;;}
+.box{border-color: blue; border-style: initial;}
+/*content box*/
+.box{width: 400px;  
+    height: 170px; 
+    padding: 20px;
+    border: 3px solid red; 
+    box-sizing: content-box; 
+    background-color: lightblue;}
+ /*border box*/
+ .box{width: 400x;  
+    height: 170px; 
+    padding: 20px;
+    border: 3px solid red; 
+    box-sizing: border-box; 
+    background-color: rgb(191, 230, 173);}
+.box#demo{width:300px;
+         height:120px;
+    }
+
+.box#demo{width: 300px;
+    height: 120px;
+    padding: 20px;
+    background-color: lightblue;
+    border: 2px solid black;
+    box-sizing: border-box;
+    overflow: visible; /* Content will overflow and be visible outside the box */}
+
+.box#demo{width: 300px;
+        height: 120px;
+        padding: 20px;
+        background-color: lightblue;
+        border: 2px solid black;
+        box-sizing: border-box;
+        overflow: hidden; /* Content will overflow and be not displayed outside the box */}
+.box#demo{width: 300px;
+            height: 120px;
+            padding: 20px;
+            background-color: lightblue;
+            border: 2px solid black;
+            box-sizing: border-box;
+            overflow:scroll ; /* when to set scroll, both horizontal and vertical scrollbar will appear */}
+.box#demo{width: 300px;
+                height: 120px;
+                padding: 20px;
+                background-color: lightblue;
+                border: 2px solid black;
+                box-sizing: border-box;
+                overflow:auto; /*The scrollbar only appear when the content overflows */}
+.box { width: 200px;
+    height: 150px;
+    padding: 20px;
+    background-color: lightblue;
+    border: 2px solid black;
+    box-sizing: border-box;
+    outline: 10px solid red; }
+
+.box { border-radius: 10px 10px 5px 5px; 
+                  }          
+.box { border-radius: 50% 50%; 
+                      }   
+.box {padding: 60px;}      
+
+.box{background: url('./assets/images/img1.png');}
+
+.box{background-size: cover;}
+.box{background-repeat: no-repeat;}
+.box{background-position: center;}
+
+         
+
+
+
+
+/* III. Positioning */
+/* Put styles for questions 1-3 here */
+.position-absolute1{position: absolute; 
+    top: 0px;
+    background-color: brown;
+}
+.position-relative{position:relative;background-color: rgb(177, 25, 146);}
+.position-relative.position-absolute{position:absolute; left: 20 px;}
+
+.position-sticky{position:sticky; background-color: blue;top: 50px;}
+
+/* IV. Styling text */
+.text-style{color: rgb(244, 127, 255);font-size: 20px;line-height: 2.5; font-weight:bold;font-weight: 1000;}
+
+/* Put styles for questions 1-10 here */
+.text-style{font-family: Sigmar, sans-serif;}
+.text-style{text-align:center;}
+.text-style{letter-spacing: 6px;}
+.text-style{word-spacing: 4px;}
+.text-style{text-transform: capitalize}
+.text-style{text-decoration:line-through;}
+/* V. Styling links */
+/* Put styles for questions 1-3 here */
+
+a:link {color: rgb(90, 90, 136);font-size: 15px;font-weight: bolder;text-decoration: underline;
+}
+a:hover {color:darkblue; font-size:xx-large;}
+a:focus {color:rgb(52, 218, 10);text-decoration: solid;}
+a:active {color:darkcyan;text-decoration: line-through;
+}
+a:visited {color:rgb(201, 6, 208);font-style:}
+
+/* VI. calc() */
+/* Put styles for questions 1-3 here */
+.calc-style{width: 100vw; background-color: aquamarine;}
+.calc-style{width: calc(100vw-100px);}
+.fixed-width-col{width: 350px;display: inline-block;}
+.fluid-col{display: inline-block; width: 100%;}
+.fluid-col.calc-width{width: calc(100%-350px);}
