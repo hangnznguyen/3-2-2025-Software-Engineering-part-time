@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 2;
+}
+
+body {
+    font-family:Playwrite IT Moderna;
+    background-color: #c6d8f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Resume Container */
+.resume-container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    background: rgb(248, 245, 245);
+    margin-top: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    background-color: #0d15ad;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 90%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 3;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+hr {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+
+/* Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color:blue;
+    color: white;
+    margin-top: 10px;}
