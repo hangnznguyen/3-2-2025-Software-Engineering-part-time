@@ -39,3 +39,15 @@ a {
 .w-80 {
     width: 80px;
 }
+.flex-container{display:flex;}
+.flex-item-1{flex:1;}
+.flex-item-2{flex:2;}
+.flex-item-3{flex:3;}
+.flex-item-4{flex:4;}
+.flex-center{justify-content: center;align-items: center;}
+.flex-container.flex-space-between{justify-content:right;}
+.flex-wrap{display: flex;flex-wrap: wrap-reverse;}
+.flex-basis-item-50{flex-basis: 50%;}
+.flex-menu{display:flex; justify-content: center}
+.flex-container.flex-menu{flex-grow: 1;}
+.fourth-item{order:1}
