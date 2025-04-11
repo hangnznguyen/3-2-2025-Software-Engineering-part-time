@@ -1,0 +1,95 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .calculator {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        h2 {
+            margin-bottom: 15px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .left, .right {
+            width: 48%;
+        }
+        .left input {
+            display: block;
+            width: 90%;
+            margin: 5px auto;
+            padding: 8px;
+            font-size: 16px;
+        }
+        .right button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin: 5px 0;
+            cursor: pointer;
+            border: none;
+            background: #00ffea;
+            color: white;
+            border-radius: 5px;
+        }
+        .result-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .result-section span {
+            margin-left: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .reset {
+            background: red;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            width: 90%;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+    .animation-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    
+    h2{
+        position: absolute;
+        font-size: 24px;
+        animation: moveLeftToMiddle 5s forwards;
+    }
+    
+    @keyframes moveLeftToMiddle {
+        0% {
+            left: -100%;  /* Start position (off-screen, to the left) */
+        }
+        50% {
+            left: 50%;  /* Stop in the middle of the container */
+            top: 0;
+            transform: translateX(-50%); /* Center the text */
+        }
+        100% {
+            left: 50%;  /* Stay in the middle */
+            top: 0;
+            transform: translateX(-50%); /* Center the text */
+        }
+    }

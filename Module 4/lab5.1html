@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Page</title>
+</head>
+<body>
+    <h1>Latest News</h1>
+    <div id="news-container"></div>  <!-- This will hold the news articles -->
+    
+   <script>
+    let news = [
+    { id: 1, title: 'Election Results', content: "Newly elected minister..." },
+    { id: 2, title: 'Sporting Success', content: "World Cup winners..." },
+    { id: 3, title: 'Tornado Warning', content: "Residents should prepare..." }
+];
+function displayNews() {
+    const newsContainer = document.getElementById('news-container');
+    
+    // Clear any existing news before updating
+    newsContainer.innerHTML = '';
+
+    // Loop through each news item in the array and create HTML elements
+    news.forEach(item => {
+        const newsItem = document.createElement('div');
+               
+        // Add the title and content to the new news item
+        const title = document.createElement('h2');
+        title.textContent = item.title;
+        
+        const content = document.createElement('p');
+        content.textContent = item.content;
+        
+        newsItem.appendChild(title);
+        newsItem.appendChild(content);
+        
+        // Append the news item to the container
+        newsContainer.appendChild(newsItem);
+    });
+}
+
+// Call the displayNews function every 5 seconds (5000 milliseconds)
+setInterval(displayNews, 5000);
+   </script>
+</body>
+</html>

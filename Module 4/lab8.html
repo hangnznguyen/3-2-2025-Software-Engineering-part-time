@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Luxon DateTime Formatting</title>
+<script
+src="https://cdn.jsdelivr.net/npm/luxon@3.5.0/build/global/luxon.min.js">
+</script> <!-- reference Luxon library -->
+</head>
+<body>
+<script>
+
+// Question 1 and 2
+
+    const {DateTime} = luxon;
+//current date
+    const currentDate = DateTime.now()
+// Birhthdate
+    const birthDate = DateTime.fromISO("1981-07-11")
+// difference in days
+
+const diffIndays = currentDate.diff(birthdDate, 'days').days;
+
+console.log(Math.floor(diffIndays));
+
+// difference in month, years
+
+const diff = currentDate.diff(birthdDate,['years', 'months','days']).toObject();
+
+console.log(`You are ${Math.floor(diff.years)} years, ${Math.floor(diff.months)} months, and ${Math.floor(diff.days)} days old`);
+
+
+
+
+//Given two dates, display the date closest to the current date
+
+
+const { DateTime } = luxon;
+
+// Example dates
+const date1 = DateTime.fromISO("2025-04-01");
+const date2 = DateTime.fromISO("2025-05-01");
+
+// Current date
+const now = DateTime.now();
+
+// Compare the differences directly 
+const diff1 = now.diff(date1).milliseconds;
+const diff2 = now.diff(date2).milliseconds;
+
+// Determine which date is closer
+const closestDate = (diff1 < diff2) ? date1 : date2;
+
+console.log(`The date closest to today is: ${closestDate.toISODate()}`);
+
+//Given two dates, display whether the first date is before or after the second date
+
+const { DateTime } = luxon;
+
+// Example dates
+const date1 = DateTime.fromISO("2025-05-01");
+const date2 = DateTime.fromISO("2025-06-01");
+
+// Check if date1 is before or after date2
+if (date1.isBefore(date2)) {
+  console.log("The first date is before the second date.");
+} else if (date1.isAfter(date2)) {
+  console.log("The first date is after the second date.");
+} else {
+  console.log("The dates are the same.");
+//Display the current time in London
+
+
+const londonTime = DateTime.now().setzone("Europe/London"
+ console.log("London time:", londonTime.toLocaleString(DateTime.TIME_SIMPLE));
+
+
+</script>
+
+
+</body>
+</html>

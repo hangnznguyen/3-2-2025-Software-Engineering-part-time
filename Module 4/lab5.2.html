@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Page</title>
+    </head>
+<body>
+
+    <!-- News container -->
+    <div id="news-container"></div>
+
+    <!-- Form to add new news -->
+    <div>
+        <input type="text" id="title" placeholder="Enter news title">
+        <input type="text" id="content" placeholder="Enter news content">
+        <button onclick="addNews()">Add News</button>
+    </div>
+
+    <script>
+        // Initialize the array with existing news items
+        let news = [
+            { id: 1, title: 'Election Results', content: "Newly elected minister..." },
+            { id: 2, title: 'Sporting Success', content: "World Cup winners..." },
+            { id: 3, title: 'Tornado Warning', content: "Residents should prepare..." }
+        ];
+
+        // Function to render the news items on the page
+        function renderNews() {
+            const newsContainer = document.getElementById('news-container');
+            newsContainer.innerHTML = ''; // Clear previous news
+
+            // Loop through the array and display each news item
+            news.forEach(item => {
+                const newsItem = document.createElement('div');
+             
+                const title = document.createElement('h2');
+                title.textContent = item.title;
+
+                const content = document.createElement('p');
+                content.textContent = item.content;
+
+                newsItem.appendChild(title);
+                newsItem.appendChild(content);
+
+                newsContainer.appendChild(newsItem);
+            });
+        }
+
+        // Function to add a new news item
+        function addNews() {
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+
+            if (title && content) {
+                const newId = news.length + 1;
+                news.push({ id: newId, title: title, content: content });
+                renderNews(); // Re-render the news list after adding the new item
+            }
+
+            // Clear the input fields
+            document.getElementById('title').value = '';
+            document.getElementById('content').value = '';
+        }
+
+        // Render the news items initially
+        renderNews();
+
+        // Set up an interval to re-populate the page every 5 seconds
+        setInterval(renderNews, 5000);
+    </script>
+
+</body>
+</html>

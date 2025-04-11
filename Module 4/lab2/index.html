@@ -3,39 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculation Application</title>
-    <link rel="stylesheet" href="styles.css">
-    <link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/
-bootstrap.min.css" rel="stylesheet"
-integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQ
-N+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Calculation Application</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-    <body>
-        <div class="calculator">
-            <h2> CALCULATION APPLICATION</h2>
-            <input type="number" id="num1" placeholder="Enter first number">
-            <input type="number" id="num2" placeholder="Enter second number">
-            
-            <div class="buttons">
-                <button type="button" class="btn btn-primary">+</button>
-                <button type="button" class="btn btn-primary">-</button>
-                <button type="button" class="btn btn-primary">x</button>
-                <button type="button" class="btn btn-primary">/</button>
+<body>
+    <div class="calculator">
+        <h2>Calculation Application</h2>
 
-
-
-                <button class="operator" data-op="+">+</button>
-                <button class="operator" data-op="-">-</button>
-                <button class="operator" data-op="*">×</button>
-                <button class="operator" data-op="/">÷</button>
+        <div class="container">
+            <!-- Left Column: Inputs -->
+            <div class="left">
+                <label>Enter the first number:</label>
+                <input type="number" id="num1">
+                
+                <label>Enter the second number:</label>
+                <input type="number" id="num2">
             </div>
-            
-            <button id="equals">=</button>
-            <button id="clear">C</button>
-            
-            <h3>Result: <span id="result">0</span></h3>
+
+            <!-- Right Column: Operators -->
+            <div class="right">
+                <button onclick="setOperator('+')">+</button>
+                <button onclick="setOperator('-')">-</button>
+                <button onclick="setOperator('*')">×</button>
+                <button onclick="setOperator('/')">÷</button>
+
+                <div class="result-section">
+                    <button onclick="calculate()">=</button>
+                    <span>Result: <span id="result">0</span></span>
+                </div>
+            </div>
         </div>
-    
+
+        <!-- Reset Button -->
+        <button class="reset" onclick="resetCalculator()">Reset</button>
+    </div>
+
+    <script>
+        let operator = '';
+
+        function setOperator(op) {
+            operator = op;
+        }
+
+        function calculate() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result = 0;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers");
+                return;
+            }
+
+            switch(operator) {
+                case '+': result = num1 + num2; break;
+                case '-': result = num1 - num2; break;
+                case '*': result = num1 * num2; break;
+                case '/': result = num2 !== 0 ? num1 / num2 : "Error"; break;
+                default: alert("Please select an operator");
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+
+        function resetCalculator() {
+            document.getElementById("num1").value = '';
+            document.getElementById("num2").value = '';
+            document.getElementById("result").textContent = '0';
+        }
+    </script>
+
+   
 </body>
 </html>
