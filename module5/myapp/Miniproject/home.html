@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Quote</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f4;
+    }
+    .quote-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .quote-text {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+    }
+    .quote-author {
+      font-style: italic;
+      text-align: right;
+      color: #666;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quote-box">
+    <div id="quote" class="quote-text">Loading...</div>
+    <div id="author" class="quote-author"></div>
+   
+  </div>
+
+  <script>
+    function fetchQuote() {
+      fetch('quotes.json')
+        .then(response => response.json())
+        .then(data => {
+          const randomQuote = data[Math.floor(Math.random() * data.length)];
+          document.getElementById('quote').textContent = randomQuote.q;
+          document.getElementById('author').textContent = `— ${randomQuote.a}`;
+        })
+        .catch(error => {
+          document.getElementById('quote').textContent = " can't load the page.";
+          document.getElementById('author').textContent = "";
+          console.error('Error fetching quote:', error);
+        });
+    }
+    // Fetch a quote on page load
+    fetchQuote();
+  </script>
+
+</body>
+</html>
