@@ -1,0 +1,134 @@
+<!-- forum.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forum</title>
+
+
+
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+
+  <style>
+    body {
+      margin: 0;
+      padding-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+
+
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white; /* No black bar */
+      padding: 20px 30px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional soft shadow */
+    }
+
+
+
+
+    .navbar img {
+      height: 350px;
+      width: auto;
+    }
+
+
+
+
+    .navbar a {
+      color: #007bff; /* Blue text */
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+
+
+
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+
+
+
+    .forum-title {
+      font-size: 3em;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+
+
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+
+
+
+    .button-group .btn {
+      font-size: 1.2em;
+      padding: 15px 25px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <img src="logo.png" alt="Logo">
+    <div>
+      <a href="home.html">Home</a>
+      <a href="quotes.html">Quotes</a>
+      <a href="contact.html">Contact</a>
+      <a href="forum.html">Forum</a>
+    </div>
+  </div>
+
+
+
+
+  <!-- Forum Content -->
+  <div class="text-center">
+    <h2 class="forum-title">Forum</h2>
+    <div class="button-group">
+      <button class="btn btn-primary">General Discussion</button>
+      <button class="btn btn-primary">Quote of the Day Discussion</button>
+      <button class="btn btn-primary">Sharing Personal Stories</button>
+      <button class="btn btn-primary">Advice and Tips</button>
+      <button class="btn btn-primary">Feedback and Suggestions</button>
+    </div>
+  </div>
+
+
+
+
+</body>
+</html>

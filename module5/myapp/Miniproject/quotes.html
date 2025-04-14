@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quotes Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f0ea;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      color: blue;
+    }
+
+
+    .navbar .logo img {
+      height: 200px;
+    }
+
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .navbar ul li {
+      display: inline;
+    }
+
+
+    .navbar ul li a {
+      color: blue;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 5px;
+    }
+
+
+    .navbar ul li a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* Page Heading */
+    h1 {
+      text-align: center;
+      margin: 30px 0 10px;
+      padding: 60px;
+      color: #333;
+    }
+
+
+    /* Quotes Section */
+    .quote-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 0 20px 40px;
+    }
+
+
+    .quote-card {
+      padding: 20px;
+      border-radius: 15px;
+      color: #fff;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+
+    .quote-card:hover {
+      transform: translateY(-5px);
+    }
+
+
+    .quote-text {
+      font-size: 18px;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+
+    .quote-author {
+      font-size: 14px;
+      text-align: right;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="quotes.html">Quotes</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="forum.html">Forum</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- Page Title -->
+  <h1>Inspirational Quotes</h1>
+
+
+  <!-- Quotes Section -->
+  <div class="quote-container" id="quote-container"></div>
+
+
+  <!-- JavaScript to fetch quotes -->
+  <script>
+    const warmGradients = [
+      "linear-gradient(to right, #d38312, #a83279)",
+      "linear-gradient(to right, #d1913c, #ffd194)",
+      "linear-gradient(to right, #c06c84, #6c5b7b)",
+      "linear-gradient(to right, #f7b733, #fc4a1a)",
+      "linear-gradient(to right, #e29587, #c97c5d)"
+    ];
+
+
+    const fonts = [
+      "'Georgia', serif",
+      "'Trebuchet MS', sans-serif",
+      "'Palatino Linotype', 'Book Antiqua', Palatino, serif",
+      "'Lucida Console', Monaco, monospace",
+      "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+    ];
+
+
+    function fetchQuotes() {
+      fetch('quotes.json')
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById('quote-container');
+          data.forEach((quote, index) => {
+            const card = document.createElement('div');
+            card.className = 'quote-card';
+            card.style.background = warmGradients[index % warmGradients.length];
+            card.style.fontFamily = fonts[index % fonts.length];
+
+
+            card.innerHTML = `
+              <div class="quote-text">"${quote.q}"</div>
+              <div class="quote-author">— ${quote.a}</div>
+            `;
+
+
+            container.appendChild(card);
+          });
+        })
+        .catch(error => {
+          console.error('Error loading quotes:', error);
+          document.getElementById('quote-container').innerHTML = '<p>Could not load quotes.</p>';
+        });
+    }
+
+
+    fetchQuotes();
+  </script>
+
+
+</body>
+</html>

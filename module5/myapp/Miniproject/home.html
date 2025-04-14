@@ -1,64 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Random Quote</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inspirational Quotes</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 40px;
-      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
     }
-    .quote-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
+
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      height: 60px;
+      background-color: transparent; /* Removed black background */
+    }
+
+
+    .navbar img {
+      height: 350px;
+      width: auto;
+    }
+
+
+    .navbar a {
+      color: blue; /* Changed text color to blue */
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 1.2em;
+    }
+
+
+    .navbar a:hover {
+      color: #007bff;
+    }
+
+
+    .content {
+      margin-top: 80px;
+    }
+
+
+    .video-container {
+      position: relative;
+      width: 60%;
       max-width: 600px;
       margin: auto;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding-top: 40.25%;
     }
-    .quote-text {
-      font-size: 1.4em;
-      margin-bottom: 10px;
+
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
-    .quote-author {
-      font-style: italic;
-      text-align: right;
-      color: #666;
-    }
-    button {
+
+
+    /* Scrolling quote */
+    .scroll-quote {
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 50px;
       margin-top: 20px;
+    }
+
+
+    .scroll-quote span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 15s linear infinite;
+      font-size: 1.5em;
+      color: black;
+      font-weight: bold;
+    }
+
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+
+    .register-form {
+      margin-top: 20px;
+    }
+
+
+    .register-form input {
+      padding: 10px;
+      margin: 5px;
+      width: 200px;
+      font-size: 1em;
+    }
+
+
+    .register-form button {
       padding: 10px 20px;
       font-size: 1em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+
+    .register-form button:hover {
+      background-color: #0056b3;
+    }
+
+
+    /* Added gradient color effect to text */
+    .register-paragraph {
+      margin-top: 15px;
+      font-size: 1.2em;
+      color: transparent;
+      background: linear-gradient(to right, green, red, blue);
+      -webkit-background-clip: text;
+    }
+
+
+    h1 {
+      font-size: 3em;
+      color: #333;
+      position: relative;
+      animation: moveRightToCenter 2s ease-out forwards;
+    }
+
+
+    @keyframes moveRightToCenter {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="quote-box">
-    <div id="quote" class="quote-text">Loading...</div>
-    <div id="author" class="quote-author"></div>
-   
+
+  <div class="navbar">
+    <img src="logo.png" alt="Logo">
+    <div>
+      <a href="home.html">Home</a>
+      <a href="quotes.html">Quotes</a>
+      <a href="contact.html">Contact</a>
+      <a href="forum.html">Forum</a>
+    </div>
   </div>
 
-  <script>
-    function fetchQuote() {
-      fetch('quotes.json')
-        .then(response => response.json())
-        .then(data => {
-          const randomQuote = data[Math.floor(Math.random() * data.length)];
-          document.getElementById('quote').textContent = randomQuote.q;
-          document.getElementById('author').textContent = `— ${randomQuote.a}`;
-        })
-        .catch(error => {
-          document.getElementById('quote').textContent = " can't load the page.";
-          document.getElementById('author').textContent = "";
-          console.error('Error fetching quote:', error);
-        });
-    }
-    // Fetch a quote on page load
-    fetchQuote();
-  </script>
+
+  <div class="content">
+
+
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/goYtPNV5KHc?autoplay=1" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+
+    <!-- Scrolling quote -->
+    <div class="scroll-quote">
+      <span>"Success is not final, failure is not fatal: It is the courage to continue that counts." — Winston Churchill</span>
+    </div>
+
+
+    <!-- Registration Form -->
+    <div class="register-form">
+      <h2>Register to Get Daily Inspirational Quotes</h2>
+      <form>
+        <input type="text" id="username" placeholder="Username" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+
+    <!-- Registration Explanation -->
+    <div class="register-paragraph">
+      <p>Register with your username and password to receive a daily inspirational quote. Stay motivated and inspired every day!</p>
+    </div>
+  </div>
+
 
 </body>
 </html>
