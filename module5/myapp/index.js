@@ -1,10 +1,12 @@
 
 const express = require("express");
 const swaggerUi = require('swagger-ui-express');
+const apiDocs = require('./api-docs.json');
 const routes = require("./routes/myapproutes");
 const calculationRoute = require("./routes/calculatorRoutes");
 const userRoutes = require('./routes/userRoutes');
 const app = express();
+const friendroutes = require("./routes/friendRoutes")
 const port = 3000;
 
 
@@ -23,6 +25,7 @@ app.use(cors())
 app.use('/', express.static("public")); // serve static files like index.html, CSS, images
 app.use('/myapp', routes); // custom routes from another file
 app.use('/Calculate', calculationRoute)
+app.use('/friends', friendroutes); // custom routes from another file
 
 app.use('/users', userRoutes);
 

@@ -1,0 +1,1 @@
+// please check friendRoutes.js inside routes folder, models/friend.js files

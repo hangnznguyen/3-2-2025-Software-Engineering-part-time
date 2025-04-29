@@ -1,0 +1,154 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Friends API",
+      "version": "1.0.0",
+      "description": "A simple API to manage friends data"
+    },
+    "paths": {
+      "/friends": {
+        "get": {
+          "summary": "Get all friends",
+          "responses": {
+            "200": {
+              "description": "A list of friends",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Friend"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Add a new friend",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Friend"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Friend successfully added",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Friend"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Friend object must contain a name and gender"
+            }
+          }
+        }
+      },
+      "/friends/{id}": {
+        "get": {
+          "summary": "Get a friend by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "The ID of the friend",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Friend found",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Friend"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Friend not found"
+            }
+          }
+        }
+      },
+      "/friends/filter": {
+        "get": {
+          "summary": "Filter friends by gender or starting letter",
+          "parameters": [
+            {
+              "name": "gender",
+              "in": "query",
+              "description": "Filter by gender",
+              "schema": {
+                "type": "string",
+                "enum": ["male", "female"]
+              }
+            },
+            {
+              "name": "letter",
+              "in": "query",
+              "description": "Filter by starting letter of the name",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of filtered friends",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Friend"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "No friends found with the given filter"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Friend": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "gender": {
+              "type": "string",
+              "enum": ["male", "female"]
+            },
+            "age": {
+              "type": "integer"
+            }
+          },
+          "required": ["name", "gender"]
+        }
+      }
+    }
+  }
