@@ -1,10 +1,11 @@
 
 const express = require("express");
 const swaggerUi = require('swagger-ui-express');
-const apiDocs = require('./api-docs.json');
+const swaggerFriendsDoc  = require('./swagger-friends.json')
 const routes = require("./routes/myapproutes");
 const calculationRoute = require("./routes/calculatorRoutes");
 const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes');
 const app = express();
 const friendroutes = require("./routes/friendRoutes")
 const port = 3000;
@@ -13,8 +14,15 @@ const port = 3000;
 
 const swaggerDocument = require('./swagger.json');
 
+const swaggerEcommerce = require('./fakeEcommerce.json')
 
 const cors= require("cors")
+app.use(
+    '/api-docs-ecommerce',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerEcommerce)
+)
+app.use('/api-docs-friends', swaggerUi.serve, swaggerUi.setup(swaggerFriendsDoc))
 app.use(
     '/api-docs',
     swaggerUi.serve,
@@ -26,6 +34,7 @@ app.use('/', express.static("public")); // serve static files like index.html, C
 app.use('/myapp', routes); // custom routes from another file
 app.use('/Calculate', calculationRoute)
 app.use('/friends', friendroutes); // custom routes from another file
+app.use('/api/products', productRoutes);
 
 app.use('/users', userRoutes);
 

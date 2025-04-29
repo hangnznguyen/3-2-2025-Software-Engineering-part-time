@@ -1,0 +1,46 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Fake Store API",
+      "version": "1.0.0",
+      "description": "API documentation for our Fake Store backend"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": ["http"],
+    "paths": {
+      "/api/products": {
+        "get": {
+          "summary": "Get all products",
+          "description": "Returns a list of all products",
+          "responses": {
+            "200": {
+              "description": "Successful operation"
+            }
+          }
+        }
+      },
+      "/api/products/{id}": {
+        "get": {
+          "summary": "Get product by ID",
+          "description": "Returns a single product",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation"
+            },
+            "404": {
+              "description": "Product not found"
+            }
+          }
+        }
+      }
+    }
+  }

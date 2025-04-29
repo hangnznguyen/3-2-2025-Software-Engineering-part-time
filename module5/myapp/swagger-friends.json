@@ -1,0 +1,43 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Friends API",
+      "description": "API documentation for the Friends service.",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/api",
+    "schemes": ["http"],
+    "paths": {
+      "/friends": {
+        "get": {
+          "summary": "Get all friends",
+          "description": "Fetches a list of all friends",
+          "responses": {
+            "200": {
+              "description": "A list of friends",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Friend"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Friend": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
