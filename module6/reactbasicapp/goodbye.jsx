@@ -7,7 +7,8 @@ function GoodBye() {
 
 const spideyJSX = (<div>
                 <h3>{spiderman.name}</h3>
-                <blockquote>{spiderman.catchPhrase}</blockquote><cite>{spiderman.alterEgo}</cite>
+                <blockquote>{spiderman.catchPhrase}</blockquote>
+                <cite>{spiderman.alterEgo}</cite>
                  </div>);
     return (
         <>
