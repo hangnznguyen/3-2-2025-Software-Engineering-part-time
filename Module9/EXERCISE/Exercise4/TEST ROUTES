@@ -1,0 +1,9 @@
+Get all countries:
+http://localhost:8080/api/countries
+
+
+Get by name (param):
+ http://localhost:8080/api/countries/name/France
+
+PUT to Update a Country
+http://localhost:8080/api/countries/Vietnam
